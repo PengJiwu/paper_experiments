@@ -4,7 +4,8 @@ import pandas as pd
 from collections import Counter
 
 df = pd.read_csv('/Users/tao/Documents/coding/dataset/workplace/phones.csv')
-df = df.groupby('user').count()
-users = df['item']
+df = df.groupby('item').count()
+users = df['price']
 c = Counter(users)
-print c.most_common()
+d = c.most_common()
+print sorted(d, key=lambda x: x[0])

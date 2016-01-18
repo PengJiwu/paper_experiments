@@ -85,7 +85,7 @@ def gen_train_and_test(df, train_file, test_file):
     t.to_csv(test_file, index=False)
 
 if __name__ == '__main__':
-    filename = '/Users/tao/Documents/coding/dataset/workplace/phones'
+    filename = '/Users/tao/Documents/coding/dataset/workplace/phonesu3i3'
     df = pd.read_csv(filename + '.csv')
     train_file = filename + '_train.csv'
     test_file = filename + '_test.csv'

@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import numpy as np
 import itertools
 from BaseDataModel import BaseDataModel
@@ -55,6 +56,8 @@ class MemeryDataModel(BaseDataModel):
     def getBuyTimeBeforeByUIId(self, userID, itemID, time):
         all_time = self.getBuyTimeByUIId(userID, itemID)
         result = [x for x in all_time if x < time]
+        # 为后续计算和求导方便，假设每个人至少已经买过一次了
+        result.append(0)
         return result
 
     def getUserEarliestAndLatestTimeByUid(self, userID):
