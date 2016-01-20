@@ -5,6 +5,7 @@ from sklearn.base import BaseEstimator
 from sklearn import grid_search
 from sklearn.cross_validation import StratifiedKFold
 import numpy as np
+from collections import Counter
 
 import MyMemeryDataModel
 from Evaluation import *
@@ -114,7 +115,8 @@ class UMNU(BaseEstimator):
         origin_beta_2 = self.beta_2
 
         for it in xrange(self.num_iter):
-            #print max(self.gamma)
+            # a = max(self.gamma)
+            # print a, list(self.gamma).count(a)
             #print 'starting iteration {0}'.format(it)
             if not initial:
                 old_target = self._target_value()
@@ -124,7 +126,6 @@ class UMNU(BaseEstimator):
             samples = self._sample()
 
             for user, item, time, is_bought in samples:
-                # print max(self.gamma)
                 margin = self._margial_ratio(user, item, time)
                 partial_p_u = self.item_factor[item] * margin
                 partial_q_i = self.user_factor[user] * margin
@@ -141,70 +142,20 @@ class UMNU(BaseEstimator):
                     partial_q_i = -partial_q_i
                     partial_gamma_i = -partial_gamma_i
 
-                if np.nan in partial_p_u or np.nan in partial_q_i or np.isnan(partial_gamma_i):
-                    margin = self._margial_ratio(user, item, time)
-                    partial_p_u = self.item_factor[item] * margin
-                    partial_q_i = self.user_factor[user] * margin
-
-                    pq = np.dot(self.user_factor[user], self.item_factor[item])
-                    before_buy = len(self.dataModel.getBuyTimeBeforeByUIId(user, item, time))
-                    margin_gamma_i = (before_buy + 1) ** self.gamma[item] * np.log(before_buy + 1) - before_buy ** \
-                                                                                                     self.gamma[
-                                                                                                         item] * np.log(
-                        before_buy)
-                    partial_gamma_i = pq * margin_gamma_i
-                    if not is_bought:
-                        partial_p_u = -partial_p_u
-                        partial_q_i = -partial_q_i
-                        partial_gamma_i = -partial_gamma_i
-                if np.inf in partial_p_u or np.inf in partial_q_i or np.isinf(partial_gamma_i):
-                    margin = self._margial_ratio(user, item, time)
-                    partial_p_u = self.item_factor[item] * margin
-                    partial_q_i = self.user_factor[user] * margin
-
-                    pq = np.dot(self.user_factor[user], self.item_factor[item])
-                    before_buy = len(self.dataModel.getBuyTimeBeforeByUIId(user, item, time))
-                    margin_gamma_i = (before_buy + 1) ** self.gamma[item] * np.log(before_buy + 1) - before_buy ** \
-                                                                                                     self.gamma[
-                                                                                                         item] * np.log(
-                        before_buy)
-                    partial_gamma_i = pq * margin_gamma_i
-                    if not is_bought:
-                        partial_p_u = -partial_p_u
-                        partial_q_i = -partial_q_i
-                        partial_gamma_i = -partial_gamma_i
-
-                if partial_gamma_i > 100:
-                    margin = self._margial_ratio(user, item, time)
-                    partial_p_u = self.item_factor[item] * margin
-                    partial_q_i = self.user_factor[user] * margin
-
-                    pq = np.dot(self.user_factor[user], self.item_factor[item])
-                    before_buy = len(self.dataModel.getBuyTimeBeforeByUIId(user, item, time))
-                    margin_gamma_i = (before_buy + 1) ** self.gamma[item] * np.log(before_buy + 1) - before_buy ** \
-                                                                                                     self.gamma[
-                                                                                                         item] * np.log(
-                        before_buy)
-                    partial_gamma_i = pq * margin_gamma_i
-                    if not is_bought:
-                        partial_p_u = -partial_p_u
-                        partial_q_i = -partial_q_i
-                        partial_gamma_i = -partial_gamma_i
-
                 self.user_factor[user] += self.beta_1 * partial_p_u
                 self.item_factor[item] += self.beta_1 * partial_q_i
                 self.gamma[item] += self.beta_2 * partial_gamma_i
+                if self.gamma[item] > 1:
+                    self.gamma[item] = 1
 
-                #debug
-                #print 'loss = {0} after update a sample'.format(self._target_value())
 
             new_target = self._target_value()
-            print 'iteration {0}: loss = {1}'.format(it, new_target)
+            #print 'iteration {0}: loss = {1}'.format(it, new_target)
             #check and adapt learning rate
-            if old_target < new_target:
+            if new_target < old_target:
                 self.beta_1 *= 0.5
                 self.beta_2 *= 0.5
-            elif old_target - new_target < self.sentry:
+            elif new_target - old_target < self.sentry:
                 print 'converge!!'
                 break
             else:
@@ -238,7 +189,7 @@ class UMNU(BaseEstimator):
             true = list(set(testSamples[testSamples.user == u]['item']))
             trueList.append(true)
             pre = self.recommend(u)
-            print pre, true
+            #print pre, true
             recommendList.append(pre)
         e = Eval()
         result = e.evalAll(trueList, recommendList)
@@ -293,12 +244,12 @@ if __name__ == '__main__':
     targets = [i[4] for i in data]
 
     umnu = UMNU()
-    parameters = {'rec_num': [5], 'num_iter': [200], 'sentry': [0.01], 'implict_dim': [50, 100],
+    parameters = {'rec_num': [5], 'num_iter': [1000], 'sentry': [1, 0.1], 'implict_dim': [50, 100],
                   'precision_lambda_1': [1, 0.01], 'gamma_0': [0.5], 'precision_lambda_2': [25],
-                  'beta_1': [00.001, 0.003, 0.01, 0.03, 0.1], 'beta_2': [0.001, 0.003, 0.01, 0.03],
+                  'beta_1': [0.003, 0.01, 0.03, 0.1, 0.3], 'beta_2': [0.003, 0.01, 0.03, 0.1, 0.3],
                   'neg_pos_ratio': [2, 5, 10]}
     my_cv = CustomCV(data, 1)
-    clf = grid_search.GridSearchCV(umnu, parameters,cv=my_cv)
+    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=3)
     clf.fit(data, targets)
     print(clf.grid_scores_)
     print clf.best_score_, clf.best_params_
