@@ -12,13 +12,16 @@ class MemeryDataModel(BaseDataModel):
         self.__items = list(set(samples['item']))
 
         self.__buy_time = [[[] for x in self.__items] for _ in self.__users]
+        self.__rate = np.zeros((len(self.__users), len(self.__items)))
 
         for ix, row in samples.iterrows():
             user = row['user']
             item = row['item']
             time = row['time']
+            rate = row['rate']
 
             self.__buy_time[self.getUidByUser(user)][self.getIidByItem(item)].append(time)
+            self.__rate[self.getUidByUser(user), self.getIidByItem(item)] = rate
 
     def getUidByUser(self, user):
         if user not in self.__users:
@@ -48,6 +51,9 @@ class MemeryDataModel(BaseDataModel):
 
     def getBuyTimeByUIId(self, userID, itemID):
         return self.__buy_time[userID][itemID]
+
+    def getRateByUIId(self, userID, itemID):
+        return self.__rate[userID, itemID]
 
     def getNonEmptyIidByUid(self, userID):
         nonIid = [x for x in range(self.getItemsNum()) if self.__buy_time[userID][x]]
