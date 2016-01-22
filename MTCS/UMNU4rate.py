@@ -137,7 +137,7 @@ class UMNU4Rate(BaseEstimator):
             # print 'starting iteration {0}'.format(it)
             if not initial:
                 old_target = self._target_value()
-                print 'initial loss = {0}'.format(old_target)
+                #print 'initial loss = {0}'.format(old_target)
                 initial = True
 
             samples = self._sample()
@@ -166,7 +166,7 @@ class UMNU4Rate(BaseEstimator):
                     self.gamma[item] = 1
 
             new_target = self._target_value()
-            print 'iteration {0}: loss = {1}'.format(it, new_target)
+            #print 'iteration {0}: loss = {1}'.format(it, new_target)
             # check and adapt learning rate
             if new_target < old_target:
                 self.beta_1 *= 0.5
@@ -257,18 +257,18 @@ class CustomCV(object):
 
 
 if __name__ == '__main__':
-    df = pd.read_csv('../preprocess/phonesu3i3_format.csv')
-    # df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu3i3_format.csv')
+    df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
+    # df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
     data = df.values
     targets = [i[4] for i in data]
 
     umnu = UMNU4Rate()
-    parameters = {'rec_num': [5], 'num_iter': [1000], 'sentry': [1, 0.1], 'implict_dim': [50, 100],
-                  'precision_lambda_1': [1, 0.01], 'gamma_0': [0.5], 'precision_lambda_2': [25],
-                  'beta_1': [0.003, 0.01, 0.03, 0.1, 0.3], 'beta_2': [0.003, 0.01, 0.03, 0.1, 0.3],
-                  'neg_pos_ratio': [1, 2, 5, 10]}
+    parameters = {'rec_num': [5], 'num_iter': [1000], 'sentry': [20, 10, 5, 1], 'implict_dim': [25, 50, 75, 100, 150],
+                  'precision_lambda_1': [0.5, 1, 2, 4, 10], 'gamma_0': [0.3, 0.5, 0.7], 'precision_lambda_2': [4, 9, 16, 25, 36],
+                  'beta_1': [0.003, 0.008, 0.01, 0.012], 'beta_2': [0.003, 0.008, 0.01, 0.012],
+                  'neg_pos_ratio': [0.5, 0.8, 1]}
     my_cv = CustomCV(data, 1)
-    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=10)
+    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=6)
     clf.fit(data, targets)
     print(clf.grid_scores_)
     print clf.best_score_, clf.best_params_

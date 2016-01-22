@@ -63,10 +63,18 @@ class MemeryDataModel(BaseDataModel):
         all_time = self.getBuyTimeByUIId(userID, itemID)
         result = [x for x in all_time if x < time]
         # 为后续计算和求导方便，假设每个人至少已经买过一次了
-        result.append(0)
+        result.insert(0, 0)
         return result
 
     def getUserEarliestAndLatestTimeByUid(self, userID):
         item_buy_time = self.__buy_time[userID]
         all_time = list(itertools.chain(*item_buy_time))
         return min(all_time), max(all_time)
+
+    def getGloablLatestTime(self):
+        time = []
+        for i in xrange(self.getUsersNum()):
+            item_buy_time = self.__buy_time[i]
+            all_time = list(itertools.chain(*item_buy_time))
+            time.append(max(all_time))
+        return max(time)
