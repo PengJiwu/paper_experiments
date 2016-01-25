@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/MTCS/UMNU4Price.py" line="5" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7a16c344-fb11-4a13-82e7-b50d5cf0feda" name="Default" comment="Adapt UMNU to log and rate">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MTCS/UMNU4Time.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MTCS/UMNU4Price.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/MTCS/UMNU4rate.py" afterPath="$PROJECT_DIR$/MTCS/UMNU4Rate.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/MyMemeryDataModel.py" afterPath="$PROJECT_DIR$/MTCS/MyMemeryDataModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/UMNU.py" afterPath="$PROJECT_DIR$/MTCS/UMNU.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/UMNU4LogTest.py" afterPath="$PROJECT_DIR$/MTCS/UMNU4LogTest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/UMNU4Time.py" afterPath="$PROJECT_DIR$/MTCS/UMNU4Time.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/filtering.py" afterPath="$PROJECT_DIR$/MTCS/filtering.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/format.py" afterPath="$PROJECT_DIR$/MTCS/format.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Experiment.iws" />
@@ -28,22 +30,23 @@
     <SUITE FILE_PATH="coverage/Experiment$pre_crawl_amazon_price_review.coverage" NAME="pre_crawl_amazon_price_review Coverage Results" MODIFIED="1451470109718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/preprocess" />
     <SUITE FILE_PATH="coverage/Experiment$MyGaussian.coverage" NAME="MyGaussian Coverage Results" MODIFIED="1450671481619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RRCP" />
     <SUITE FILE_PATH="coverage/Experiment$lib.coverage" NAME="lib Coverage Results" MODIFIED="1445674219911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Experiment$UMNU4Rate.coverage" NAME="UMNU4Rate Coverage Results" MODIFIED="1453424167342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$UMNU4Price.coverage" NAME="UMNU4Price Coverage Results" MODIFIED="1453703264750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$UMNU4Rate.coverage" NAME="UMNU4Rate Coverage Results" MODIFIED="1453601230407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1449840521995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Solution" />
     <SUITE FILE_PATH="coverage/Experiment$pre_amazon_meta.coverage" NAME="pre_amazon_meta Coverage Results" MODIFIED="1452761709933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/preprocess" />
     <SUITE FILE_PATH="coverage/Experiment$count.coverage" NAME="count Coverage Results" MODIFIED="1453121982614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$pre_amazon_meta__1_.coverage" NAME="pre_amazon_meta (1) Coverage Results" MODIFIED="1452848441711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
-    <SUITE FILE_PATH="coverage/Experiment$filtering.coverage" NAME="filtering Coverage Results" MODIFIED="1453360854039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$filtering.coverage" NAME="filtering Coverage Results" MODIFIED="1453701971952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$Construction.coverage" NAME="Construction Coverage Results" MODIFIED="1451057671606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RRCP" />
     <SUITE FILE_PATH="coverage/Experiment$post_amazon_reviews.coverage" NAME="post_amazon_reviews Coverage Results" MODIFIED="1445045118170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/postprocess" />
     <SUITE FILE_PATH="coverage/Experiment$TensorFactorization.coverage" NAME="TensorFactorization Coverage Results" MODIFIED="1451291148155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RRCP" />
     <SUITE FILE_PATH="coverage/Experiment$recommender.coverage" NAME="recommender Coverage Results" MODIFIED="1446001527032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EFM" />
-    <SUITE FILE_PATH="coverage/Experiment$UMNU4LogTest.coverage" NAME="UMNU4LogTest Coverage Results" MODIFIED="1453261603276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$UMNU4LogTest.coverage" NAME="UMNU4LogTest Coverage Results" MODIFIED="1453601202247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$main.coverage" NAME="main Coverage Results" MODIFIED="1450943893610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RRCP" />
-    <SUITE FILE_PATH="coverage/Experiment$UMNU.coverage" NAME="UMNU Coverage Results" MODIFIED="1453423527533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$UMNU.coverage" NAME="UMNU Coverage Results" MODIFIED="1453702359705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$RRCP.coverage" NAME="RRCP Coverage Results" MODIFIED="1450841079830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RRCP" />
-    <SUITE FILE_PATH="coverage/Experiment$format.coverage" NAME="format Coverage Results" MODIFIED="1453360873713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
-    <SUITE FILE_PATH="coverage/Experiment$UMNU4Time.coverage" NAME="UMNU4Time Coverage Results" MODIFIED="1453432146519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$format.coverage" NAME="format Coverage Results" MODIFIED="1453701979167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$UMNU4Time.coverage" NAME="UMNU4Time Coverage Results" MODIFIED="1453599484660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$MyMemeryDataModel.coverage" NAME="MyMemeryDataModel Coverage Results" MODIFIED="1453344701865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$post_review.coverage" NAME="post_review Coverage Results" MODIFIED="1445587927796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/postprocess" />
     <SUITE FILE_PATH="coverage/Experiment$pre_amazon_review.coverage" NAME="pre_amazon_review Coverage Results" MODIFIED="1451470741877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/preprocess" />
@@ -67,41 +70,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UMNU.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UMNU.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MTCS/UMNU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="13" selection-start-column="4" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyMemeryDataModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MTCS/MyMemeryDataModel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="73" column="27" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UMNU4Time.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Time.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8589109">
-              <caret line="297" column="71" selection-start-line="297" selection-start-column="71" selection-end-line="297" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="frame.py" pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Python/2.7/site-packages/pandas/core/frame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3760" column="0" selection-start-line="3760" selection-start-column="0" selection-end-line="3760" selection-end-column="0" />
+            <state vertical-scroll-proportion="6.111588">
+              <caret line="240" column="26" selection-start-line="240" selection-start-column="26" selection-end-line="240" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -129,7 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/EFM/result_yelp_with_514i" />
         <option value="$PROJECT_DIR$/EFM/result_yelp_with_514" />
         <option value="$PROJECT_DIR$/TopN/result_amazon_with_1534" />
         <option value="$PROJECT_DIR$/EFM/result_yelp_with_534" />
@@ -173,13 +145,14 @@
         <option value="$PROJECT_DIR$/MTCS/count.py" />
         <option value="$PROJECT_DIR$/MTCS/MTCS.py" />
         <option value="$PROJECT_DIR$/MTCS/UMNU4rate.py" />
-        <option value="$PROJECT_DIR$/MTCS/filtering.py" />
         <option value="$PROJECT_DIR$/MTCS/format.py" />
-        <option value="$PROJECT_DIR$/MTCS/UMNU4Rate.py" />
-        <option value="$PROJECT_DIR$/MTCS/UMNU4LogTest.py" />
-        <option value="$PROJECT_DIR$/MTCS/UMNU.py" />
         <option value="$PROJECT_DIR$/MTCS/MyMemeryDataModel.py" />
         <option value="$PROJECT_DIR$/MTCS/UMNU4Time.py" />
+        <option value="$PROJECT_DIR$/MTCS/UMNU4LogTest.py" />
+        <option value="$PROJECT_DIR$/MTCS/UMNU4Rate.py" />
+        <option value="$PROJECT_DIR$/MTCS/UMNU.py" />
+        <option value="$PROJECT_DIR$/MTCS/filtering.py" />
+        <option value="$PROJECT_DIR$/MTCS/UMNU4Price.py" />
       </list>
     </option>
   </component>
@@ -193,7 +166,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="992" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -218,8 +191,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,6 +225,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Experiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Experiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Eval" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -280,7 +267,7 @@
       <recent name="$PROJECT_DIR$/utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.UMNU4Time">
+  <component name="RunManager" selected="Python.UMNU4Price">
     <configuration default="false" name="format" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -335,7 +322,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="MyMemeryDataModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="UMNU4LogTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -348,12 +335,12 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Experiment" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MTCS/MyMemeryDataModel.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MTCS/UMNU4LogTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="UMNU4Time" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="UMNU4Price" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -366,7 +353,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Experiment" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MTCS/UMNU4Time.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MTCS/UMNU4Price.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -582,16 +569,16 @@
       <item index="1" class="java.lang.String" itemvalue="Python.format" />
       <item index="2" class="java.lang.String" itemvalue="Python.filtering" />
       <item index="3" class="java.lang.String" itemvalue="Python.UMNU4Rate" />
-      <item index="4" class="java.lang.String" itemvalue="Python.MyMemeryDataModel" />
-      <item index="5" class="java.lang.String" itemvalue="Python.UMNU4Time" />
+      <item index="4" class="java.lang.String" itemvalue="Python.UMNU4LogTest" />
+      <item index="5" class="java.lang.String" itemvalue="Python.UMNU4Price" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.UMNU4Time" />
-        <item index="1" class="java.lang.String" itemvalue="Python.UMNU4Rate" />
-        <item index="2" class="java.lang.String" itemvalue="Python.format" />
-        <item index="3" class="java.lang.String" itemvalue="Python.filtering" />
-        <item index="4" class="java.lang.String" itemvalue="Python.MyMemeryDataModel" />
+        <item index="0" class="java.lang.String" itemvalue="Python.UMNU4Price" />
+        <item index="1" class="java.lang.String" itemvalue="Python.format" />
+        <item index="2" class="java.lang.String" itemvalue="Python.filtering" />
+        <item index="3" class="java.lang.String" itemvalue="Python.UMNU4Rate" />
+        <item index="4" class="java.lang.String" itemvalue="Python.UMNU4LogTest" />
       </list>
     </recent_temporary>
   </component>
@@ -631,23 +618,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="992" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1920" height="712" extended-state="0" />
+    <editor active="false" />
     <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1368477" sideWeight="0.7370968" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41555557" sideWeight="0.50319487" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.49" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10170394" sideWeight="0.7370968" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24390244" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31707317" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1187399" sideWeight="0.2629032" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40111113" sideWeight="0.4968051" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.58038586" sideWeight="0.4968051" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -793,6 +780,11 @@
           <line>38</line>
           <option name="timeStamp" value="371" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/MTCS/UMNU4Price.py</url>
+          <line>200</line>
+          <option name="timeStamp" value="454" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -804,7 +796,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="454" />
+      <option name="time" value="455" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -813,26 +805,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LPRRMCF/tinytest/unifiedtrain.csv">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029275808">
-          <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LPRRMCF/tinytest/iid.csv">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.40255">
-          <caret line="1303" column="7" selection-start-line="1303" selection-start-column="7" selection-end-line="1303" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -973,13 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess/pre_crawl_amazon_price_review.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38990825">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RRCP/Construction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.93202144">
@@ -1022,13 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess/pre_amazon_meta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="31" selection-start-line="115" selection-start-column="31" selection-end-line="115" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/pandas/core/generic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33273703">
@@ -1058,13 +1016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess/format.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="36" selection-start-line="47" selection-start-column="4" selection-end-line="70" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MTCS/Evaluation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33269963">
@@ -1083,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="730" column="0" selection-start-line="730" selection-start-column="0" selection-end-line="730" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1494" column="4" selection-start-line="1494" selection-start-column="4" selection-end-line="1494" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,7 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="250" column="29" selection-start-line="250" selection-start-column="29" selection-end-line="250" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,7 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="548" column="0" selection-start-line="548" selection-start-column="0" selection-end-line="548" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,7 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33225283">
           <caret line="504" column="0" selection-start-line="504" selection-start-column="0" selection-end-line="504" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1137,39 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MTCS/filtering.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MTCS/format.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Rate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="265" column="18" selection-start-line="265" selection-start-column="18" selection-end-line="268" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4LogTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="222" column="59" selection-start-line="222" selection-start-column="59" selection-end-line="222" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,14 +1090,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3760" column="0" selection-start-line="3760" selection-start-column="0" selection-end-line="3760" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess/pre_crawl_amazon_price_review.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.13689095">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess/format.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04408353">
+          <caret line="70" column="36" selection-start-line="47" selection-start-column="4" selection-end-line="70" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess/pre_amazon_meta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6171694">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Eval/Evaluation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="296" column="35" selection-start-line="296" selection-start-column="35" selection-end-line="296" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MTCS/UMNU.py">
+    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Rate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="13" selection-start-column="4" selection-end-line="15" selection-end-column="0" />
+          <caret line="258" column="0" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MTCS/format.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MTCS/filtering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1192,15 +1159,33 @@
     <entry file="file://$PROJECT_DIR$/MTCS/MyMemeryDataModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="27" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="27" />
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Time.py">
+    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4LogTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8589109">
-          <caret line="297" column="71" selection-start-line="297" selection-start-column="71" selection-end-line="297" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="228" column="17" selection-start-line="228" selection-start-column="17" selection-end-line="228" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Price.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40772533">
+          <caret line="196" column="22" selection-start-line="196" selection-start-column="22" selection-end-line="196" selection-end-column="22" />
+          <folding>
+            <element signature="e#42#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MTCS/UMNU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.111588">
+          <caret line="240" column="26" selection-start-line="240" selection-start-column="26" selection-end-line="240" selection-end-column="26" />
           <folding />
         </state>
       </provider>

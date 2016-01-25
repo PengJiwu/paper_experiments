@@ -13,4 +13,6 @@ vi = set(b.index)
 
 a = a[a.user.isin(vu)]
 a = a[a.item.isin(vi)]
+
+a = a[a.price >= 30]
 a.to_csv('/Users/tao/Documents/coding/dataset/workplace/phonesu5i5.csv', index=False)

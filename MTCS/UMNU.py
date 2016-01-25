@@ -171,11 +171,9 @@ class UMNU(BaseEstimator):
         #for k in self.item_price.keys():
             #self.item_price[k] = 0
 
-    def recommend(self, u):
+    def recommend(self, u, time):
         u = self.dataModel.getUidByUser(u)
-        min_time, max_time = self.dataModel.getUserEarliestAndLatestTimeByUid(u)
-        now_time = max_time + 1
-        utility = [self._marginal_net_utility(u, i, now_time) for i in xrange(self.dataModel.getItemsNum())]
+        utility = [self._marginal_net_utility(u, i, time) for i in xrange(self.dataModel.getItemsNum())]
         recommend_items = sorted(xrange(len(utility)), key=lambda x: utility[x], reverse=True)[:self.rec_num]
         real_items = [self.dataModel.getItemByIid(x) for x in recommend_items]
         return real_items
@@ -186,11 +184,14 @@ class UMNU(BaseEstimator):
         recommendList= []
         user_unique = list(set(testSamples['user']))
         for u in user_unique:
-            true = list(set(testSamples[testSamples.user == u]['item']))
-            trueList.append(true)
-            pre = self.recommend(u)
-            #print pre, true
-            recommendList.append(pre)
+            true_time = set(testSamples[testSamples.user == u]['time'])
+            for time in true_time:
+                tmp_samples = testSamples[testSamples.user == u]
+                true_item = list(set(tmp_samples[tmp_samples.time == time]['item']))
+                trueList.append(true_item)
+                pre = self.recommend(u, time)
+                # print u,pre, true_item
+                recommendList.append(pre)
         e = Eval()
         result = e.evalAll(trueList, recommendList)
         print 'UMNU result:'+'('+str(self.get_params())+'):\t' + str((result)['F1'])
@@ -238,18 +239,18 @@ class CustomCV(object):
         return self.n_folds
 
 if __name__ == '__main__':
-    df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
-    # df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
+    # df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
+    df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
     data = df.values
     targets = [i[4] for i in data]
 
     umnu = UMNU()
-    parameters = {'rec_num': [5], 'num_iter': [1000], 'sentry': [20, 10, 5, 1], 'implict_dim': [25, 50, 75, 100, 150],
-                  'precision_lambda_1': [0.5, 1, 2, 4, 10], 'gamma_0': [0.3, 0.5, 0.7], 'precision_lambda_2': [4, 9, 16, 25, 36],
-                  'beta_1': [0.003, 0.008, 0.01, 0.012], 'beta_2': [0.003, 0.008, 0.01, 0.012],
-                  'neg_pos_ratio': [0.5, 0.8, 1]}
-    my_cv = CustomCV(data, 1)
-    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=6)
+    parameters = {'rec_num': [5], 'num_iter': [1000], 'sentry': [20], 'implict_dim': [150],
+                  'precision_lambda_1': [0.5], 'gamma_0': [0.5], 'precision_lambda_2': [16],
+                  'beta_1': [0.008], 'beta_2': [0.003],
+                  'neg_pos_ratio': [0.5]}
+    my_cv = CustomCV(data, 3)
+    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=1)
     clf.fit(data, targets)
     print(clf.grid_scores_)
     print clf.best_score_, clf.best_params_
