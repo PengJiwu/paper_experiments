@@ -180,38 +180,39 @@ class UMNU(BaseEstimator):
 class CustomCV(object):
     def __init__(self, ids, n_folds):
         """Pass an array of phenomenon ids"""
-        self.df = pd.DataFrame(ids, columns=['user', 'item', 'title', 'price', 'rate', 'time'])
+        self.df = ids
         self.n_folds = n_folds
 
     def __iter__(self):
         for i in range(self.n_folds):
             df = self.df.sort(['time'])
 
-            users_all = np.array(df.values)[:, 0]
+            users_all = df['user']
             users_set = list(set(users_all))
             users_records_num = [list(users_all).count(i) for i in users_set]
             train_num = [int(i * 0.8) for i in users_records_num]
             user_num = np.zeros(len(users_set))
             train = []
             test = []
-            lines = df.values
+            length = len(df)
             # filtering
             valid_items = set([])
-            for line in df.values:
-                uid = int(line[0])
+            for ix in range(length):
+                uid = df.ix[ix, 'user']
+                iid = df.ix[ix, 'item']
                 # print uid, uid in users_set, len(user_num), len(train_num)
                 if user_num[uid] < train_num[uid]:
                     user_num[uid] += 1
-                    valid_items.add(line[1])
+                    valid_items.add(iid)
 
             user_num = np.zeros(len(users_set))
-            for ix in xrange(len(lines)):
-                line = lines[ix]
-                uid = int(line[0])
+            for ix in range(length):
+                uid = df.ix[ix, 'user']
+                iid = df.ix[ix, 'item']
                 if user_num[uid] < train_num[uid]:
                     user_num[uid] += 1
                     train.append(ix)
-                elif line[1] in valid_items:
+                elif iid in valid_items:
                     test.append(ix)
 
             yield np.array(train), np.array(test)
