@@ -261,8 +261,8 @@ class CustomCV(object):
 if __name__ == '__main__':
     # df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
     df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
-    data = df.values
-    targets = [i[4] for i in data]
+    data = df
+    targets = df['rate']
 
     umnu = UMNU4Rate()
     parameters = {'rec_num': [5], 'num_iter': [1000], 'sentry': [20], 'implict_dim': [150],

@@ -13,8 +13,8 @@ from Evaluation import *
 
 class UMNU(BaseEstimator):
     def __init__(self, rec_num=5, num_iter=5, sentry=0.1, implict_dim=50, precision_lambda_1=1, gamma_0=1,
-                 precision_lambda_2=1, beta_1=0.015, beta_2=0.035, neg_pos_ratio=1):
-        self.rec_num, self.num_iter, self.sentry, self.implict_dim, self.precision_lambda_1, self.gamma_0, self.precision_lambda_2, self.beta_1, self.beta_2, self.neg_pos_ratio = rec_num, num_iter, sentry, implict_dim, precision_lambda_1, gamma_0, precision_lambda_2, beta_1, beta_2, neg_pos_ratio
+                 precision_lambda_2=1, alpha_0=1, precision_lambda_3=1, avg_price=True,beta_1=0.015, beta_2=0.035, beta_3=0.01, neg_pos_ratio=1):
+        self.rec_num, self.num_iter, self.sentry, self.implict_dim, self.precision_lambda_1, self.gamma_0, self.precision_lambda_2, self.alpha_0, self.precision_lambda_3, self.avg_price, self.beta_1, self.beta_2, self.beta_3, self.neg_pos_ratio = rec_num, num_iter, sentry, implict_dim, precision_lambda_1, gamma_0, precision_lambda_2, alpha_0, precision_lambda_3, avg_price, beta_1, beta_2, beta_3, neg_pos_ratio
 
     def _construct(self):
         self.user_factor = np.random.normal(0, 1.0 / self.precision_lambda_1,
@@ -22,6 +22,8 @@ class UMNU(BaseEstimator):
         self.item_factor = np.random.normal(0, 1.0 / self.precision_lambda_1,
                                             (self.dataModel.getItemsNum(), self.implict_dim))
         self.gamma = np.random.normal(self.gamma_0, 1.0 / self.precision_lambda_2, self.dataModel.getItemsNum())
+
+        self.alpha = np.random.normal(self.alpha_0, 1.0 / self.precision_lambda_3, self.dataModel.getUsersNum())
 
         # target sample only once in initializing
         self.target_samples = self._sample()
@@ -79,9 +81,24 @@ class UMNU(BaseEstimator):
 
         return margin
 
+    def _rectifier(self, uid, iid):
+        u = self.dataModel.getUserByUid(uid)
+        i = self.dataModel.getItemByIid(iid)
+        if self.avg_price:
+            price_in_train = self.user_buy_avg_price[u]
+        else:
+            price_in_train = self.user_max_price[u]
+        price = self.item_price[i]
+
+        if price > price_in_train:
+            return (0.0 + price - price_in_train) / price_in_train
+        else:
+            return 0.0
+
     def _marginal_net_utility(self, user, item, time):
         margin = self._margial_ratio(user, item, time)
-        utility = np.dot(self.user_factor[user], self.item_factor[item]) * margin - self.item_price[
+        price_param = np.exp(-self.alpha[user] * self._rectifier(user, item))
+        utility = price_param * np.dot(self.user_factor[user], self.item_factor[item]) * margin - self.item_price[
             self.dataModel.getItemByIid(item)]
         return utility
 
@@ -108,6 +125,8 @@ class UMNU(BaseEstimator):
     def fit(self, trainSamples, trainTargets):
         self.trainDataFrame = pd.DataFrame(trainSamples, columns=['user', 'item', 'title', 'price', 'rate', 'time'])
         self.item_price = self.trainDataFrame.set_index('item')['price'].to_dict()
+        tmpDataFrame = self.trainDataFrame.groupby('user').mean()
+        self.user_buy_avg_price = tmpDataFrame['price'].to_dict()
         tmpDataFrame = self.trainDataFrame.groupby(['user']).min()
         self.user_min_price = tmpDataFrame['price'].to_dict()
         tmpDataFrame = self.trainDataFrame.groupby(['user']).max()
@@ -120,6 +139,7 @@ class UMNU(BaseEstimator):
         initial = False
         origin_beta_1 = self.beta_1
         origin_beta_2 = self.beta_2
+        origin_beta_3 = self.beta_3
 
         for it in xrange(self.num_iter):
             # a = max(self.gamma)
@@ -134,8 +154,10 @@ class UMNU(BaseEstimator):
 
             for user, item, time, is_bought in samples:
                 margin = self._margial_ratio(user, item, time)
-                partial_p_u = self.item_factor[item] * margin
-                partial_q_i = self.user_factor[user] * margin
+                rect = self._rectifier(user, item)
+                price_param = np.exp(-self.alpha[user] * rect)
+                partial_p_u = self.item_factor[item] * margin * price_param
+                partial_q_i = self.user_factor[user] * margin * price_param
 
                 pq = np.dot(self.user_factor[user], self.item_factor[item])
                 before_buy = len(self.dataModel.getBuyTimeBeforeByUIId(user, item, time))
@@ -143,17 +165,29 @@ class UMNU(BaseEstimator):
                                                                                                  self.gamma[
                                                                                                      item] * np.log(
                     before_buy)
-                partial_gamma_i = pq * margin_gamma_i
+                partial_gamma_i = price_param * pq * margin_gamma_i
+
+                price = self.item_price[self.dataModel.getItemByIid(item)]
+                u_max_price = self.user_max_price[self.dataModel.getUserByUid(user)]
+                if price > u_max_price:
+                    partial_alpha_u = -rect * price_param * pq * margin
+                else:
+                    partial_alpha_u = 0.0
+
                 if not is_bought:
                     partial_p_u = -partial_p_u
                     partial_q_i = -partial_q_i
                     partial_gamma_i = -partial_gamma_i
+                    partial_alpha_u = -partial_alpha_u
 
                 self.user_factor[user] += self.beta_1 * partial_p_u
                 self.item_factor[item] += self.beta_1 * partial_q_i
                 self.gamma[item] += self.beta_2 * partial_gamma_i
                 if self.gamma[item] > 1:
                     self.gamma[item] = 1
+                self.alpha[user] += self.beta_3 * partial_alpha_u
+                if self.alpha[user] < 0:
+                    self.alpha[user] = 0
 
             new_target = self._target_value()
             # print 'iteration {0}: loss = {1}'.format(it, new_target)
@@ -161,15 +195,18 @@ class UMNU(BaseEstimator):
             if new_target < old_target:
                 self.beta_1 *= 0.5
                 self.beta_2 *= 0.5
+                self.beta_3 *= 0.5
             elif new_target - old_target < self.sentry:
                 print 'converge!!'
                 break
             else:
-                self.beta_1 *= 0.99
-                self.beta_2 *= 0.99
+                self.beta_1 *= 0.999
+                self.beta_2 *= 0.999
+                self.beta_3 *= 0.999
             old_target = new_target
         self.beta_1 = origin_beta_1
         self.beta_2 = origin_beta_2
+        self.beta_3 = origin_beta_3
 
         # self.user_factor = np.ones((self.dataModel.getUsersNum(), self.implict_dim))
         # self.item_factor = np.ones((self.dataModel.getItemsNum(), self.implict_dim))
@@ -184,7 +221,7 @@ class UMNU(BaseEstimator):
         real_items = [self.dataModel.getItemByIid(x) for x in recommend_items]
         min_price = self.user_min_price[u]
         max_price = self.user_max_price[u]
-        real_items = [x for x in real_items if self.item_price[x] >= min_price and self.item_price[x] <= max_price]
+        #real_items = [x for x in real_items if self.item_price[x] >= min_price and self.item_price[x] <= max_price]
         return real_items[:self.rec_num]
 
     def score(self, testSamples, trueLabels=None):
@@ -192,6 +229,8 @@ class UMNU(BaseEstimator):
         trueList = []
         recommendList = []
         user_unique = list(set(testSamples['user']))
+        #print 'user length:', len(user_unique)
+        count = 0
         for u in user_unique:
             true_time = set(testSamples[testSamples.user == u]['time'])
             for time in true_time:
@@ -199,9 +238,15 @@ class UMNU(BaseEstimator):
                 true_item = list(set(tmp_samples[tmp_samples.time == time]['item']))
                 trueList.append(true_item)
                 pre = self.recommend(u, time)
-                # print [self.item_price[x] for x in true_item]
+
+                if max([self.item_price[x] for x in pre]) > self.user_max_price[u] and max([self.item_price[x] for x in pre]) > max([self.item_price[x] for x in true_item]):
+                    count += 1
+                #if max([self.item_price[x] for x in pre]) > self.user_max_price[u]:
+                    #print [self._marginal_net_utility(self.dataModel.getUidByUser(u), self.dataModel.getIidByItem(x), time) for x in pre]
+                #print self.user_max_price[u], max([self.item_price[x] for x in true_item]), max([self.item_price[x] for x in pre])
                 # print self.user_min_price[u], self.user_max_price[u]
                 recommendList.append(pre)
+        print count
         e = Eval()
         result = e.evalAll(trueList, recommendList)
         print 'UMNU result:' + '(' + str(self.get_params()) + '):\t' + str((result)['F1'])
@@ -253,20 +298,19 @@ class CustomCV(object):
 
 
 if __name__ == '__main__':
-    # df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
-    df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
-    # data = df.values
-    # targets = [i[4] for i in data]
+    df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
+    # df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
     data = df
     targets = df['rate']
 
     umnu = UMNU()
-    parameters = {'rec_num': [5], 'num_iter': [1000], 'sentry': [20], 'implict_dim': [150],
-                  'precision_lambda_1': [0.5], 'gamma_0': [0.5], 'precision_lambda_2': [16],
-                  'beta_1': [0.008], 'beta_2': [0.003],
-                  'neg_pos_ratio': [0.5]}
-    my_cv = CustomCV(data, 3)
-    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=1)
+    parameters = {'rec_num': [5], 'num_iter': [2000], 'sentry': [20, 10, 1, 0.1], 'implict_dim': [150],
+                  'precision_lambda_1': [0.25, 0.64, 1, 4, 9, 16, 25], 'gamma_0': [0.3, 0.5, 0.8, 1, 2], 'precision_lambda_2': [0.25, 0.64, 1, 4, 9, 16, 25],
+                  'alpha_0':[0.1, 0.2, 0.3, 0.5, 0.8, 1, 2], 'precision_lambda_3':[0.25, 0.64, 1, 4, 9, 16, 25], 'beta_1': [0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3], 'beta_2': [0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3],
+                  'beta_3':[0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3], 'avg_price':[True, False],
+                  'neg_pos_ratio': [0.3, 0.5, 0.8, 1, 10]}
+    my_cv = CustomCV(data, 1)
+    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=10)
     clf.fit(data, targets)
-    print(clf.grid_scores_)
+    #print(clf.grid_scores_)
     print clf.best_score_, clf.best_params_

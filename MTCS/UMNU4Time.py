@@ -201,7 +201,7 @@ class UMNU4Time(BaseEstimator):
 
 
             new_target = self._target_value()
-            print 'iteration {0}: loss = {1}'.format(it, new_target)
+            #print 'iteration {0}: loss = {1}'.format(it, new_target)
             #check and adapt learning rate
             if new_target < old_target:
                 self.beta_1 *= 0.5
@@ -235,7 +235,7 @@ class UMNU4Time(BaseEstimator):
                 true_item = list(set(tmp_samples[tmp_samples.time == time]['item']))
                 trueList.append(true_item)
                 pre = self.recommend(u, time)
-                print u, pre, true_item
+                #print u, pre, true_item
                 recommendList.append(pre)
         e = Eval()
         result = e.evalAll(trueList, recommendList)
@@ -287,15 +287,15 @@ class CustomCV(object):
 if __name__ == '__main__':
     # df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
     df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
-    data = df.values
-    targets = [i[4] for i in data]
+    data = df
+    targets = df['rate']
 
     umnu = UMNU4Time()
-    parameters = {'rec_num': [5], 'num_iter': [1000], 'sentry': [20, 10, 5, 1], 'implict_dim': [25, 50, 75, 100, 150],
-                  'precision_lambda_1': [0.5, 1, 2, 4, 10], 'gamma_0': [0.3, 0.5, 0.7], 'precision_lambda_2': [4, 9, 16, 25, 36],
-                  'beta_1': [0.003, 0.008, 0.01, 0.012], 'beta_2': [0.003, 0.008, 0.01, 0.012],
-                  'neg_pos_ratio': [0.5, 0.8, 1]}
-    my_cv = CustomCV(data, 1)
+    parameters = {'rec_num': [5], 'num_iter': [2000], 'sentry': [5], 'implict_dim': [150],
+                  'precision_lambda_1': [0.5], 'gamma_0': [0.5], 'precision_lambda_2': [16],
+                  'beta_1': [0.003], 'beta_2': [0.008],
+                  'neg_pos_ratio': [0.5]}
+    my_cv = CustomCV(data, 3)
     clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=1)
     clf.fit(data, targets)
     print(clf.grid_scores_)
