@@ -6,6 +6,7 @@ from sklearn import grid_search
 from sklearn.cross_validation import StratifiedKFold
 import numpy as np
 from collections import Counter
+import random
 
 import MyMemeryDataModel
 from Evaluation import *
@@ -98,8 +99,7 @@ class UMNU(BaseEstimator):
     def _marginal_net_utility(self, user, item, time):
         margin = self._margial_ratio(user, item, time)
         price_param = np.exp(-self.alpha[user] * self._rectifier(user, item))
-        utility = price_param * np.dot(self.user_factor[user], self.item_factor[item]) * margin - self.item_price[
-            self.dataModel.getItemByIid(item)]
+        utility = price_param * np.dot(self.user_factor[user], self.item_factor[item]) * margin - self.item_price[self.dataModel.getItemByIid(item)]
         return utility
 
     def _target_value(self):
@@ -168,8 +168,11 @@ class UMNU(BaseEstimator):
                 partial_gamma_i = price_param * pq * margin_gamma_i
 
                 price = self.item_price[self.dataModel.getItemByIid(item)]
-                u_max_price = self.user_max_price[self.dataModel.getUserByUid(user)]
-                if price > u_max_price:
+                if self.avg_price:
+                    u_price = self.user_buy_avg_price[self.dataModel.getUserByUid(user)]
+                else:
+                    u_price = self.user_max_price[self.dataModel.getUserByUid(user)]
+                if price > u_price:
                     partial_alpha_u = -rect * price_param * pq * margin
                 else:
                     partial_alpha_u = 0.0
@@ -261,12 +264,13 @@ class CustomCV(object):
 
     def __iter__(self):
         for i in range(self.n_folds):
+            sample_size = random.uniform(0.7, 0.9)
             df = self.df.sort(['time'])
 
             users_all = df['user']
             users_set = list(set(users_all))
             users_records_num = [list(users_all).count(i) for i in users_set]
-            train_num = [int(i * 0.8) for i in users_records_num]
+            train_num = [int(i * sample_size) for i in users_records_num]
             user_num = np.zeros(len(users_set))
             train = []
             test = []
@@ -309,8 +313,8 @@ if __name__ == '__main__':
                   'alpha_0':[0.1, 0.2, 0.3, 0.5, 0.8, 1, 2], 'precision_lambda_3':[0.25, 0.64, 1, 4, 9, 16, 25], 'beta_1': [0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3], 'beta_2': [0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3],
                   'beta_3':[0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3], 'avg_price':[True, False],
                   'neg_pos_ratio': [0.3, 0.5, 0.8, 1, 10]}
-    my_cv = CustomCV(data, 1)
-    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=10)
+    my_cv = CustomCV(data, 2)
+    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=1)
     clf.fit(data, targets)
     #print(clf.grid_scores_)
     print clf.best_score_, clf.best_params_

@@ -206,8 +206,7 @@ class CustomCV(object):
 
     def __iter__(self):
         for i in range(self.n_folds):
-            sample_size = random.uniform(0.7, 0.9)
-
+            sample_size = 0.8
             df = self.df.sort(['time'])
 
             users_all = df['user']
@@ -253,8 +252,8 @@ if __name__ == '__main__':
                   'precision_lambda_1': [0.25, 0.64, 1, 4, 9, 16, 25], 'gamma_0': [0.3, 0.5, 0.8, 1, 2], 'precision_lambda_2': [0.25, 0.64, 1, 4, 9, 16, 25],
                   'beta_1': [0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3], 'beta_2': [0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3],
                   'neg_pos_ratio': [0.3, 0.5, 0.8, 1, 10]}
-    my_cv = CustomCV(data, 3)
-    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=10)
+    my_cv = CustomCV(data, 2)
+    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=1)
     clf.fit(data, targets)
     print(clf.grid_scores_)
     print clf.best_score_, clf.best_params_

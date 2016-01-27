@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a16c344-fb11-4a13-82e7-b50d5cf0feda" name="Default" comment="Fix CustomCV bug">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MTCS/CSTP.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MTCS/UMNU4rate.py" afterPath="$PROJECT_DIR$/MTCS/UMNU4Rate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/CSTP.py" afterPath="$PROJECT_DIR$/MTCS/CSTP.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/UMNU.py" afterPath="$PROJECT_DIR$/MTCS/UMNU.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/UMNU4LogTest.py" afterPath="$PROJECT_DIR$/MTCS/UMNU4LogTest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/UMNU4Price.py" afterPath="$PROJECT_DIR$/MTCS/UMNU4Price.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTCS/UMNU4Time.py" afterPath="$PROJECT_DIR$/MTCS/UMNU4Time.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Experiment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +29,7 @@
     <SUITE FILE_PATH="coverage/Experiment$lib.coverage" NAME="lib Coverage Results" MODIFIED="1445674219911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Experiment$UMNU4Price.coverage" NAME="UMNU4Price Coverage Results" MODIFIED="1453856006603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$UMNU4Rate.coverage" NAME="UMNU4Rate Coverage Results" MODIFIED="1453601230407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
-    <SUITE FILE_PATH="coverage/Experiment$CSTP.coverage" NAME="CSTP Coverage Results" MODIFIED="1453855414596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$CSTP.coverage" NAME="CSTP Coverage Results" MODIFIED="1453865462121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1449840521995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Solution" />
     <SUITE FILE_PATH="coverage/Experiment$pre_amazon_meta.coverage" NAME="pre_amazon_meta Coverage Results" MODIFIED="1452761709933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/preprocess" />
     <SUITE FILE_PATH="coverage/Experiment$count.coverage" NAME="count Coverage Results" MODIFIED="1453121982614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
@@ -44,7 +41,7 @@
     <SUITE FILE_PATH="coverage/Experiment$recommender.coverage" NAME="recommender Coverage Results" MODIFIED="1446001527032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EFM" />
     <SUITE FILE_PATH="coverage/Experiment$UMNU4LogTest.coverage" NAME="UMNU4LogTest Coverage Results" MODIFIED="1453601202247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$main.coverage" NAME="main Coverage Results" MODIFIED="1450943893610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RRCP" />
-    <SUITE FILE_PATH="coverage/Experiment$UMNU.coverage" NAME="UMNU Coverage Results" MODIFIED="1453857830128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
+    <SUITE FILE_PATH="coverage/Experiment$UMNU.coverage" NAME="UMNU Coverage Results" MODIFIED="1453866292837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$RRCP.coverage" NAME="RRCP Coverage Results" MODIFIED="1450841079830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RRCP" />
     <SUITE FILE_PATH="coverage/Experiment$format.coverage" NAME="format Coverage Results" MODIFIED="1453701979167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
     <SUITE FILE_PATH="coverage/Experiment$UMNU4Time.coverage" NAME="UMNU4Time Coverage Results" MODIFIED="1453772061050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MTCS" />
@@ -75,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Price.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="310" column="57" selection-start-line="306" selection-start-column="18" selection-end-line="310" selection-end-column="57" />
+              <caret line="315" column="28" selection-start-line="315" selection-start-column="28" selection-end-line="315" selection-end-column="28" />
               <folding>
                 <element signature="e#43#81#0" expanded="true" />
               </folding>
@@ -86,11 +83,21 @@
       <file leaf-file-name="CSTP.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MTCS/CSTP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6062176">
-              <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+            <state vertical-scroll-proportion="8.608163">
+              <caret line="311" column="32" selection-start-line="311" selection-start-column="32" selection-end-line="311" selection-end-column="32" />
               <folding>
                 <element signature="e#43#81#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UMNU4Time.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Time.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="262" column="28" selection-start-line="262" selection-start-column="28" selection-end-line="262" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/MTCS/UMNU.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="262" column="0" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
+              <caret line="208" column="12" selection-start-line="208" selection-start-column="12" selection-end-line="208" selection-end-column="29" />
               <folding>
                 <element signature="e#42#80#0" expanded="true" />
               </folding>
@@ -186,10 +193,10 @@
         <option value="$PROJECT_DIR$/MTCS/filtering.py" />
         <option value="$PROJECT_DIR$/MTCS/UMNU4LogTest.py" />
         <option value="$PROJECT_DIR$/MTCS/UMNU4Rate.py" />
+        <option value="$PROJECT_DIR$/MTCS/UMNU.py" />
+        <option value="$PROJECT_DIR$/MTCS/CSTP.py" />
         <option value="$PROJECT_DIR$/MTCS/UMNU4Time.py" />
         <option value="$PROJECT_DIR$/MTCS/UMNU4Price.py" />
-        <option value="$PROJECT_DIR$/MTCS/CSTP.py" />
-        <option value="$PROJECT_DIR$/MTCS/UMNU.py" />
       </list>
     </option>
   </component>
@@ -675,16 +682,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="712" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41555557" sideWeight="0.50319487" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24390244" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33225808" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16451614" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16397415" sideWeight="0.7370968" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16397415" sideWeight="0.7370968" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31774193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -840,12 +847,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/MTCS/UMNU4Time.py</url>
-          <line>252</line>
+          <line>253</line>
           <option name="timeStamp" value="466" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/MTCS/UMNU4Price.py</url>
-          <line>227</line>
+          <line>230</line>
           <option name="timeStamp" value="478" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -1220,38 +1227,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78923076">
-          <caret line="243" column="0" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Price.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="310" column="57" selection-start-line="306" selection-start-column="18" selection-end-line="310" selection-end-column="57" />
-          <folding>
-            <element signature="e#43#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MTCS/UMNU.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="262" column="0" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
+          <caret line="208" column="12" selection-start-line="208" selection-start-column="12" selection-end-line="208" selection-end-column="29" />
           <folding>
             <element signature="e#42#80#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Price.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="315" column="28" selection-start-line="315" selection-start-column="28" selection-end-line="315" selection-end-column="28" />
+          <folding>
+            <element signature="e#43#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MTCS/UMNU4Time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="262" column="28" selection-start-line="262" selection-start-column="28" selection-end-line="262" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MTCS/CSTP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6062176">
-          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+        <state vertical-scroll-proportion="8.608163">
+          <caret line="311" column="32" selection-start-line="311" selection-start-column="32" selection-end-line="311" selection-end-column="32" />
           <folding>
             <element signature="e#43#81#0" expanded="true" />
           </folding>

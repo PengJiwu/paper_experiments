@@ -250,12 +250,13 @@ class CustomCV(object):
 
     def __iter__(self):
         for i in range(self.n_folds):
+            sample_size = 0.8
             df = self.df.sort(['time'])
 
             users_all = df['user']
             users_set = list(set(users_all))
             users_records_num = [list(users_all).count(i) for i in users_set]
-            train_num = [int(i * 0.8) for i in users_records_num]
+            train_num = [int(i * sample_size) for i in users_records_num]
             user_num = np.zeros(len(users_set))
             train = []
             test = []
@@ -285,17 +286,17 @@ class CustomCV(object):
         return self.n_folds
 
 if __name__ == '__main__':
-    # df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
-    df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
+    df = pd.read_csv('../preprocess/phonesu5i5_format.csv')
+    # df = pd.read_csv('~/Documents/coding/dataset/workplace/phonesu5i5_format.csv')
     data = df
     targets = df['rate']
 
     umnu = UMNU4Time()
-    parameters = {'rec_num': [5], 'num_iter': [2000], 'sentry': [5], 'implict_dim': [150],
-                  'precision_lambda_1': [0.5], 'gamma_0': [0.5], 'precision_lambda_2': [16],
-                  'beta_1': [0.003], 'beta_2': [0.008],
-                  'neg_pos_ratio': [0.5]}
-    my_cv = CustomCV(data, 3)
+    parameters = {'rec_num': [5], 'num_iter': [2000], 'sentry': [20, 10, 1, 0.1], 'implict_dim': [150],
+                  'precision_lambda_1': [0.25, 0.64, 1, 4, 9, 16, 25], 'gamma_0': [0.3, 0.5, 0.8, 1, 2], 'precision_lambda_2': [0.25, 0.64, 1, 4, 9, 16, 25],
+                  'beta_1': [0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3], 'beta_2': [0.001, 0.003, 0.008, 0.01, 0.03, 0.1, 0.3],
+                  'neg_pos_ratio': [0.3, 0.5, 0.8, 1, 10]}
+    my_cv = CustomCV(data, 2)
     clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=1)
     clf.fit(data, targets)
     print(clf.grid_scores_)

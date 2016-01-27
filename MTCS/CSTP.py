@@ -219,8 +219,11 @@ class CSTP(BaseEstimator):
                     partial_gamma_i = time_para * (1 - 1/(1+(1 + np.exp(-time_span / item_avg_time_span + self.gamma[item])))) / (before_buy + time_para) * pq * price_param
 
                 price = self.item_price[self.dataModel.getItemByIid(item)]
-                u_max_price = self.user_max_price[self.dataModel.getUserByUid(user)]
-                if price > u_max_price:
+                if self.avg_price:
+                    u_price = self.user_buy_avg_price[self.dataModel.getUserByUid(user)]
+                else:
+                    u_price = self.user_max_price[self.dataModel.getUserByUid(user)]
+                if price > u_price:
                     partial_alpha_u = -rect * price_param * pq * margin
                 else:
                     partial_alpha_u = 0.0
@@ -303,7 +306,7 @@ class CustomCV(object):
 
     def __iter__(self):
         for i in range(self.n_folds):
-            sample_size = random.uniform(0.7, 0.9)
+            sample_size = 0.8
             df = self.df.sort(['time'])
 
             users_all = df['user']
@@ -360,8 +363,8 @@ if __name__ == '__main__':
                   'beta_3':[0.01],
                   'neg_pos_ratio': [0.5]}
     '''
-    my_cv = CustomCV(data, 3)
-    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=15)
+    my_cv = CustomCV(data, 2)
+    clf = grid_search.GridSearchCV(umnu, parameters, cv=my_cv, n_jobs=1)
     clf.fit(data, targets)
     #print(clf.grid_scores_)
     print clf.best_score_, clf.best_params_
